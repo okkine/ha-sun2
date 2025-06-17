@@ -762,12 +762,12 @@ class Sun2ElevationSensor(Sun2CPSensorEntity[float]):
             # sunrise/sunset elevation so icon updates at the right time.
             if self._cp.rising:
                 elev = floor((rnd_elev + ELEV_STEP) / ELEV_STEP) * ELEV_STEP
-                if rnd_elev < SUNSET_ELEV and elev > SUNSET_ELEV + MAX_ERR_ELEV:
-                    elev = SUNSET_ELEV + MAX_ERR_ELEV
+                #if rnd_elev < SUNSET_ELEV and elev > SUNSET_ELEV + MAX_ERR_ELEV:
+                #    elev = SUNSET_ELEV + MAX_ERR_ELEV
             else:
                 elev = ceil((rnd_elev - ELEV_STEP) / ELEV_STEP) * ELEV_STEP
-                if rnd_elev > SUNSET_ELEV and elev < SUNSET_ELEV - MAX_ERR_ELEV:
-                    elev = SUNSET_ELEV - MAX_ERR_ELEV
+                #if rnd_elev > SUNSET_ELEV and elev < SUNSET_ELEV - MAX_ERR_ELEV:
+                #    elev = SUNSET_ELEV - MAX_ERR_ELEV
             nxt_dttm = self._get_dttm_at_elev(
                 self._prv_dttm, cur_dttm, elev, MAX_ERR_ELEV
             )
